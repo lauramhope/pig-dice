@@ -53,10 +53,13 @@
     document.querySelector("#total-score").innerText = player.totalScore;
   }
 
+  let newPlayer; // global variable to be removed
+  
   function handleFormSubmission(event)  {
     event.preventDefault();
     const inputtedPlayerName = document.querySelector("input#name1").value;
-    let newPlayer = new Player(inputtedPlayerName);
+    newPlayer = new Player(inputtedPlayerName);
+    console.log("the new player constructor: ",newPlayer)
     // add newPlayer to game here if we make a Game() constructor
     displayPlayers(newPlayer); // change to display game later
     document.querySelector("input#name1").value = null;
@@ -64,11 +67,14 @@
 
   function handleRollButton(event)  {
     event.preventDefault();
-    // player1.playerTurn();
+    newPlayer.playerTurn();
+    displayPlayers(newPlayer); // change to display game later
   }
 
   function handlePassButton(event)  {
     event.preventDefault();
+    newPlayer.holdDice();
+    displayPlayers(newPlayer); // change to display game later
   }
     
   window.addEventListener("load", function(){
