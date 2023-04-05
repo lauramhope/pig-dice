@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="js/scripts.js"></script>
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <title>Pig Dice</title>
+</head>
+<body>
+  <h2>Pig Dice</h2>
+  <form id = "game-setup">
+    <label for="name1">Enter Player 1 Name: </label>
+    <input id="name1" type="text" name="name1" required>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  
+  <form id = "play-game">
+    <div id="player1">
+      <h3></h3>
+      <button type="submit" id="roll" class="btn">Roll Dice</button>
+      <button type="submit" id="pass" class="btn">Pass Turn</button>
+      <br>
+    </div>
+  </form>
+  <div id="player-results" class="hidden">
+    <p>Player Name: <span id="player-name"></span></p>
+    <p>Roll: <span id="roll-amount"></span></p>
+    <p>Round Amount: <span id="round-amount"></span></p>
+    <p>Total Score: <span id="total-score"></span></p>
+  </div>
+</body>
+</html>
