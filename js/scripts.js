@@ -3,6 +3,7 @@
 function Game(){
   this.gamePlayers = {}
   this.currentId = 0;
+  this.maxId = 0;
 }
 
 Game.prototype.addPlayer = function(player){
@@ -12,6 +13,7 @@ Game.prototype.addPlayer = function(player){
 
 Game.prototype.assignId = function(){
   this.currentId += 1;
+  this.maxId += 1;
   return this.currentId;
 };
 
@@ -74,10 +76,12 @@ Player.prototype.passTurn = function() {
 let game = new Game();
 
 function displayGame(gameToDisplay)  {
-
   Object.keys(gameToDisplay.gamePlayers).forEach(function(key) {
-  
-  }
+    const playerObj = gameToDisplay.findPlayer(key);
+    if(playerObj.currentId === 1 ){
+
+    }
+  });
 
   const currentPlayer = gameToDisplay.findPlayer(player.id); // players- get input from data base correctly
   document.querySelector("#player-name").innerText = currentPlayer.playerName;
