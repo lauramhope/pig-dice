@@ -1,3 +1,24 @@
 /* .hidden {
   display: none;
 } */
+
+body {
+  padding-left: 35px;
+  padding-top: 35px; 
+  background-image: url("dice.jpeg");
+  background-position: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.btn {
+  border: double black; 
+  background-color: antiquewhite;
+  margin-bottom: 15px;
+  margin-right: 10px; 
+}
+
+h2 {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}

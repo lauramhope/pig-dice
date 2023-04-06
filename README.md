@@ -2,17 +2,18 @@
 
 #### By **Laura Hope, Joseph Wahbeh, Gareth Grindeland**_
 
-#### _{Brief description of application}_
+#### _Application demonstrating an interactive game between multiple players_
 
 ## Technologies Used
 
 * _HTML_
 * _CSS_
 * _JavaScript_
+* _Bootstrap_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This application showcases using constructor functions and custom prototypes to display a game allowing multiple players to submit user input, roll dice via number randomization, and hold dice to pass turn to next player. Application includes Object-Oriented JavaScript methods, functions, switch statements, looping, and object.keys_
 
 ## Setup/Installation Requirements
 
@@ -52,17 +53,11 @@ Test: "It will hold the dice on current player's turn and give the sum of the ro
 Code: holdDice()
 Expected Output: 
 
-Describe: Player.prototype.passTurn()
-
-Test: WIP
-Code: 
-Expected Output: 
 ```
 
 ## Known Bugs
 
 * _Any known issues_
-* _should go here_
 
 ## License
 
