@@ -8,13 +8,13 @@ function Game(){
 
 Game.prototype.addPlayer = function(player){
   player.id = this.assignId();
-  this.gamePlayers[player.id] = player
+  this.gamePlayers[player.id] = player;
 };
 
 Game.prototype.assignId = function(){
   this.currentId += 1;
   this.maxId += 1;
-  return this.currentId;
+  return this.maxId;
 };
 
 Game.prototype.findPlayer = function (id){
@@ -22,6 +22,14 @@ Game.prototype.findPlayer = function (id){
     return this.addPlayer[id];
   } else {
     return this.addPlayer[0];
+  }
+};
+
+Game.prototype.updateCurrentId = function(){
+  if(this.currentId > this.maxId){
+    this.currentId = 1;
+  } else {
+    this.currentId += 1;
   }
 };
 
@@ -41,7 +49,7 @@ Player.prototype.playerTurn = function() {
   console.log(this.roll,this.roundScore);
   if (this.roll === 1) {
     this.roundScore = 0;
-    this.passTurn();
+    this.holdDice();
     console.log("roll = 0, pass turn");
   } else  {
     this.roundScore += this.roll;
@@ -64,9 +72,11 @@ Player.prototype.checkWin = function(){
 Player.prototype.holdDice = function(){
   this.totalScore += this.roundScore;
   this.roundScore = 0;
+  game.updateCurrentId();
 };
 
 Player.prototype.passTurn = function() {
+
   // WIP
   // update database of palyers to go to next player in the list 
 };
@@ -76,19 +86,21 @@ Player.prototype.passTurn = function() {
 let game = new Game();
 
 function displayGame(gameToDisplay)  {
+  let currentPlayer = gameToDisplay.gamePlayers[1];
+  console.log(currentPlayer);
   Object.keys(gameToDisplay.gamePlayers).forEach(function(key) {
-    const playerObj = gameToDisplay.findPlayer(key);
-    if(playerObj.currentId === 1 ){
-
+  console.log("key",key,typeof(gameToDisplay.currentId),gameToDisplay.currentId.toString() ===  key)
+    if(gameToDisplay.currentId.toString() ===  key){
+      currentPlayer = gameToDisplay.gamePlayers[key];
+      currentPlayer.playerTurn();
     }
   });
-
-  const currentPlayer = gameToDisplay.findPlayer(player.id); // players- get input from data base correctly
+  console.log(currentPlayer);
+  //const currentPlayer = gameToDisplay.findPlayer(player.id); // players- get input from data base correctly
   document.querySelector("#player-name").innerText = currentPlayer.playerName;
   document.querySelector("#roll-amount").innerText = currentPlayer.roll;
   document.querySelector("#round-amount").innerText = currentPlayer.roundScore;
   document.querySelector("#total-score").innerText = currentPlayer.totalScore;
-
   //   document.querySelector("#everyone-score").innerText = player.totalScore;
 }
 
@@ -108,14 +120,12 @@ function handleFormSubmission(event)  {
 function handleRollButton(event)  {
   //Need to find which id to grab
   event.preventDefault();
-  newPlayer.playerTurn();
-  displayPlayers(newPlayer); // change to display game later
+  displayGame(game);
 }
 
 function handlePassButton(event)  {
   event.preventDefault();
-  newPlayer.holdDice();
-  displayPlayers(newPlayer); // change to display game later
+   
 }
   
 window.addEventListener("load", function(){
