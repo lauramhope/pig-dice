@@ -11,7 +11,7 @@
   <title>Pig Dice</title>
 </head>
 <body>
-  <h2>Pig Dice</h2>
+  <h1>Pig Dice</h1>
   <form id = "game-setup">
     <label for="name1">Add Player: </label>
     <input id="name1" type="text" name="name1" required>
@@ -26,10 +26,15 @@
     </div>
   </form>
   <div id="player-results" class="hidden">
-    <p>Player Name: <span id="player-name"></span></p>
+    <p>Current Player: <span id="player-name"></span></p>
     <p>Roll: <span id="roll-amount"></span></p>
     <p>Round Amount: <span id="round-amount"></span></p>
     <p>Total Score: <span id="total-score"></span></p>
+    <p>Player Names and Order: <span id="total-player"></span></p>
+    <p><span id="rolled-one"></span></p>
   </div>
+  <form>
+    <button class="restart-btn">New Game</button>
+  </form>
 </body>
 </html>
