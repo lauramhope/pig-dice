@@ -115,6 +115,7 @@ function displayGame(gameToDisplay, branch)  {
       });
       if(currentPlayer.roll === 1){
         rolledOne = true;
+        currentPlayer.roundScore = 0;
         gameToDisplay.updateCurrentId();
         currentPlayer = gameToDisplay.gamePlayers[gameToDisplay.currentId];
       }
